@@ -1,0 +1,149 @@
+body {
+	background-color: #f6f6f6;
+	margin: 0;
+	overflow: hidden
+}
+
+#app {
+	font-family: Avenir,Helvetica,Arial,sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50
+}
+
+nav {
+	padding: 30px
+}
+
+nav a {
+	font-weight: 700;
+	color: #2c3e50
+}
+
+nav a.router-link-exact-active {
+	color: #42b983
+}
+
+.nav-header {
+	background-color: #fff;
+	height: 50px;
+	line-height: 50px;
+	width: 100%;
+	font-weight: 700
+}
+
+.nav-header .nav-back {
+	position: absolute;
+	left: 0;
+	width: 40px;
+	height: 50px;
+	overflow: hidden
+}
+
+.nav-header .nav-back img {
+	width: 20px;
+	height: 20px;
+	margin-top: 15px
+}
+
+.lines {
+	background-color: #fff;
+	margin-top: 10px;
+	overflow: hidden;
+	padding: 10px 15px
+}
+
+.lines .lines-header {
+	font-size: 14px;
+	line-height: 30px;
+	color: #000;
+	overflow: hidden;
+	font-weight: 700
+}
+
+.lines .lines-header .lines-header-left {
+	float: left
+}
+
+.lines .lines-header .lines-header-right {
+	float: right
+}
+
+.lines .lines-header .lines-header-right .lines-header-content {
+	display: inline-block;
+	height: 20px;
+	float: left;
+	margin-right: 2px
+}
+
+.lines .lines-header .lines-header-right img {
+	width: 20px;
+	height: 20px;
+	margin-top: 5px;
+	float: right
+}
+
+.lines .lines-body {
+	width: 100%;
+	position: relative
+}
+
+.lines .lines-body input {
+	width: 100%;
+	line-height: 34px;
+	border: none;
+	border-bottom: 1px solid #fefefe;
+	font-size: 14px;
+	color: #9c9c9c
+}
+
+.lines .lines-body input:focus {
+	outline: none
+}
+
+.lines .lines-body input::-webkit-input-placeholder {
+	color: #9c9c9c
+}
+
+.lines .lines-body input:-moz-placeholder,.lines .lines-body input::-moz-placeholder {
+	color: #9c9c9c
+}
+
+.lines .lines-body input:-ms-input-placeholder {
+	color: #9c9c9c
+}
+
+.lines .lines-bottom {
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
+	line-height: 20px;
+	margin-top: 15px;
+	margin-bottom: 5px
+}
+
+.lines .lines-bottom .lines-bottom-left {
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 700
+}
+
+.lines .lines-bottom .lines-bottom-right {
+	font-size: 12px;
+	line-height: 20px;
+	color: #9c9c9c
+}
+
+.lines .all {
+	right: 0;
+	top: 5px;
+	position: absolute;
+	border-radius: 10px;
+	border: 1px solid #e1e1e1;
+	padding: 2px 10px;
+	font-size: 10px;
+	color: #adadad
+}

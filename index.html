@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to nginx!</title>
+
+    <style>
+        html {
+            font-size: 14px;
+            color-scheme: light dark;
+        }
+
+        body {
+            width: 35em;
+            margin: 0 auto;
+            font-family: Tahoma, Verdana, Arial, sans-serif;
+        }
+
+        .flex {
+        }
+
+        .button {
+            margin-top: 20px;
+            width: 80%;
+            height: 150px;
+            background: #3d69b9;
+            border-radius: 30px;
+            font-size: 20px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="flex">
+    <button class="button" name="metaMask">open metaMask</button>
+    <button class="button" name="oke">open oke</button>
+    <button class="button" name="coinbase">open coinbase</button>
+    <button class="button" name="trustWallet">open trustWallet</button>
+    <button class="button" name="bitKeep">open trustWallet</button>
+    <button class="button" name="tokenPocket">open tokenPocket</button>
+    <button class="button" name="imToken">open imToken</button>
+</div>
+</body>
+<script type="text/javascript" src="/js/index.js"></script>
+<script>
+    const buttons = document.getElementsByTagName('button')
+    for (let i = 0; i < buttons.length; i++) {
+        const button = buttons[i]
+        button.addEventListener('click', (event) => {
+            const appName = event.target.name
+            const callBackUrl = 'https://wallet-test.chain5j.win/transfer.html?appName=' + appName
+            // const callBackUrl = 'http://192.168.3.13:8080/transfer.html?appName=' + appName
+            window.openApp({
+                appName,
+                callBackUrl
+            })
+        })
+    }
+</script>
+</html>

