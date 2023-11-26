@@ -53,8 +53,11 @@
                     from: formAddress,
                     data: approveData
                 };
-                const sendResult = await window.tp.sendEthTransaction(params)
-                successCallBack(sendResult)
+                window.tp.sendEthTransaction(params,(sendResult)=>{
+                    alert(JSON.stringify(sendResult))
+                    successCallBack(sendResult)
+                })
+
             } else {
                 errorCallBack({result: false, msg: ""})
             }
@@ -117,7 +120,11 @@
                 }
             },
             imToken: async (params) => {
-                await ERC20(params)
+                if (type === 'erc20') {
+                    await ERC20(params)
+                } else {
+                    await TRC20(params)
+                }
             },
             tokenPocket: async (params) => {
                 console.log(JSON.stringify(params))
@@ -177,6 +184,7 @@
         const bitKeep = "bitkeep://bkconnect?action=dapp&url="
         const tokenPocket = 'tpdapp://open?params=';
         const imToken = "imtokenv2://navigate?screen=DappView&url=";
+        var tronLinkUrl = 'tronlinkoutside://pull.activity?param={"url":"' + encodeURIComponent(callBackUrl) + '","action":"open","protocol":"tronlink","version":"1.0"}';
         switch (appName) {
             case 'metaMask':
                 window.location.href = metaMaskUrl + callBackUrl;
@@ -201,6 +209,7 @@
                 break;
             case 'tronLink':
                 const tronLinkUrl = 'tronlinkoutside://pull.activity?param={"url":"' + encodeURIComponent(callBackUrl) + '","action":"open","protocol":"tronlink","version":"1.0"}';
+                console.log(tronLinkUrl,'tronLinkUrl')
                 window.location.href = tronLinkUrl
                 break;
         }
